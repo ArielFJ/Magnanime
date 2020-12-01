@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.anime.AnimeFragment">
+
+
+        <RelativeLayout
+            android:id="@+id/pagerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:tabIndicatorHeight="0dp"
+                    android:background="@color/transparent"
+                    app:tabBackground="@drawable/banner_indicator_selector"
+                    app:tabMaxWidth="15dp"
+                    android:layout_alignParentBottom="true"
+                    />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/thisSeasonLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/popularThis"
+            android:textColor="@color/foreground"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pagerContainer" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/morePopThis"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:icon="@drawable/ic_right_arrow"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            app:cornerRadius="30dp"
+            android:layout_marginEnd="@dimen/common_padding_xLarge"
+            android:backgroundTint="@color/naranja0"
+            app:layout_constraintTop_toTopOf="@id/thisSeasonLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/thisSeasonRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/thisSeasonLabel" />
+
+        <TextView
+            android:id="@+id/nextSeasonLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/popularNext"
+            android:textColor="@color/foreground"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/thisSeasonRecycler" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/morePopNext"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:icon="@drawable/ic_right_arrow"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            app:cornerRadius="30dp"
+            android:layout_marginEnd="@dimen/common_padding_xLarge"
+            android:backgroundTint="@color/naranja0"
+            app:layout_constraintTop_toTopOf="@id/nextSeasonLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nextSeasonRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/nextSeasonLabel"
+            tools:layout_editor_absoluteX="-32dp" />
+
+        <TextView
+            android:id="@+id/allTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/allTime"
+            android:textColor="@color/foreground"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nextSeasonRecycler" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/moreAllTime"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:icon="@drawable/ic_right_arrow"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            app:cornerRadius="30dp"
+            android:layout_marginEnd="@dimen/common_padding_xLarge"
+            android:backgroundTint="@color/naranja0"
+            app:layout_constraintTop_toTopOf="@id/allTimeLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/allTimeRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/allTimeLabel" />
+
+        <TextView
+            android:id="@+id/latestLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/latest"
+            android:textColor="@color/foreground"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/allTimeRecycler" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/moreLatest"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            style="@style/Widget.MaterialComponents.Button"
+            app:icon="@drawable/ic_right_arrow"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:insetTop="0dp"
+            app:cornerRadius="30dp"
+            android:layout_marginEnd="@dimen/common_padding_xLarge"
+            android:backgroundTint="@color/naranja0"
+            app:layout_constraintTop_toTopOf="@id/latestLabel"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/latestRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/latestLabel" />
+
+        <TextView
+            android:id="@+id/arielfj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/author"
+            android:textColor="@color/accent"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/common_padding_xLarge"
+            android:paddingBottom="@dimen/common_padding_large"
+            app:layout_constraintTop_toBottomOf="@id/latestRecycler" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

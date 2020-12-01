@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/alert_background"
+        android:backgroundTint="@color/dialog"
+        android:layout_marginTop="@dimen/common_padding_xxLarge"
+        android:layout_marginBottom="@dimen/common_padding_xxLarge"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/title_secondary_background"
+            android:backgroundTint="@color/azul1"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            android:text="@string/externalLinks"
+            android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+        <ImageView
+            android:id="@+id/iconImage"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/ic_link"
+            android:layout_marginEnd="@dimen/common_padding_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:layout_constraintBottom_toBottomOf="@id/title"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:id="@+id/flexbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    app:flexWrap="wrap"
+                    app:alignItems="center"
+                    app:alignContent="space_around"
+                    app:justifyContent="center"
+                    android:layout_marginHorizontal="@dimen/common_padding_xxLarge"
+                    android:layout_marginTop="@dimen/common_padding_default"
+                    android:layout_marginBottom="@dimen/common_padding_xxLarge"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" >
+
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/common_padding_xxLarge"
+                    app:layout_constraintTop_toBottomOf="@id/flexbox"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/close"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        style="@style/Widget.MaterialComponents.Button"
+        app:icon="@drawable/ic_close"
+        app:iconGravity="textStart"
+        app:iconPadding="0dp"
+        android:insetBottom="0dp"
+        android:insetLeft="0dp"
+        android:insetRight="0dp"
+        android:insetTop="0dp"
+        app:cornerRadius="30dp"
+        android:backgroundTint="@color/error"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialog"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="110dp"
+        android:layout_height="190dp"
+        android:layout_marginStart="@dimen/common_padding_small"
+        android:layout_marginBottom="@dimen/common_padding_default"
+        android:backgroundTint="@color/card"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="@dimen/common_padding_micro">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/charImage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                android:layout_weight="5"
+                />
+
+            <TextView
+                android:id="@+id/charName"
+                android:layout_width="match_parent"
+                tools:text="Char Name"
+                android:textColor="@color/foreground"
+                android:textAlignment="center"
+                android:layout_height="0dp"
+                android:layout_weight="1.5" />
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

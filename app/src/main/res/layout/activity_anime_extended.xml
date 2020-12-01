@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/constraint"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.anime.AnimeExtendedActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/azul1"
+            android:padding="@dimen/common_padding_small"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Title toolbar"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:ellipsize="marquee"
+                android:fadingEdge="horizontal"
+                android:scrollHorizontally="true"
+                android:singleLine="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                />
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <ImageView
+            android:id="@+id/bannerImage"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/no_image"
+            android:background="#f6f6f6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+
+        <FrameLayout
+            android:id="@+id/frame"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="@dimen/common_padding_default"
+            android:padding="@dimen/common_padding_micro"
+            android:background="@drawable/tag_primary"
+            android:backgroundTint="@color/azul0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_weight="1.1"
+            app:layout_constraintEnd_toStartOf="@id/animeTitle"
+            app:layout_constraintTop_toBottomOf="@id/bannerImage"
+            app:layout_constraintBottom_toBottomOf="@id/bannerImage">
+            <ImageView
+                android:id="@+id/coverImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@android:color/background_light"
+                />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/animeTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            tools:text="Anime name"
+            android:textColor="@color/foreground"
+            android:layout_marginHorizontal="@dimen/common_padding_default"
+            android:layout_marginTop="@dimen/common_padding_default"
+            app:layout_constraintHorizontal_weight="2.5"
+            app:layout_constraintStart_toEndOf="@id/frame"
+            app:layout_constraintEnd_toStartOf="@id/likeBtn"
+            app:layout_constraintTop_toBottomOf="@id/bannerImage"
+            />
+
+        <TextView
+            android:id="@+id/animeType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?attr/textAppearanceSubtitle2"
+            tools:text="Anime type"
+            android:layout_marginTop="@dimen/common_padding_small"
+            app:layout_constraintHorizontal_weight="3"
+            app:layout_constraintEnd_toEndOf="@id/likeBtn"
+            app:layout_constraintTop_toBottomOf="@id/likeBtn"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/likeBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/Widget.MaterialComponents.Button"
+            tools:icon="@drawable/ic_star_outline"
+            app:iconGravity="textStart"
+            app:iconSize="30dp"
+            app:iconPadding="0dp"
+            app:cornerRadius="30dp"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:layout_marginEnd="@dimen/common_padding_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bannerImage"
+            app:layout_constraintBottom_toBottomOf="@id/bannerImage" />
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/common_padding_xLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/animeTitle">
+
+            <TextView
+                android:id="@+id/season"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:layout_marginHorizontal="@dimen/common_padding_small"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBody2"
+                tools:text="SUMMER, 2020"
+                android:textColor="@color/white"
+                android:tooltipText="@string/seasonText"
+                android:background="@drawable/tag_background"
+                android:backgroundTint="@color/naranja1"
+                android:paddingVertical="@dimen/common_padding_micro"
+                android:paddingHorizontal="@dimen/common_padding_default"
+                />
+
+            <TextView
+                android:id="@+id/episodes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/common_padding_small"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBody2"
+                tools:text="24"
+                android:textColor="@color/white"
+                android:tooltipText="@string/episodesText"
+                android:background="@drawable/tag_background"
+                android:backgroundTint="@color/naranja1"
+                android:paddingVertical="@dimen/common_padding_micro"
+                android:paddingHorizontal="@dimen/common_padding_default"
+                />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/common_padding_small"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBody2"
+                tools:text="24 min"
+                android:textColor="@color/white"
+                android:tooltipText="@string/durationText"
+                android:background="@drawable/tag_background"
+                android:backgroundTint="@color/naranja1"
+                android:paddingVertical="@dimen/common_padding_micro"
+                android:paddingHorizontal="@dimen/common_padding_small"
+                />
+
+            <TextView
+                android:id="@+id/origin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginHorizontal="@dimen/common_padding_small"
+                android:gravity="center"
+                android:textAppearance="?attr/textAppearanceBody2"
+                tools:text="JP"
+                android:textColor="@color/white"
+                android:tooltipText="@string/originText"
+                android:background="@drawable/tag_background"
+                android:backgroundTint="@color/naranja1"
+                android:paddingVertical="@dimen/common_padding_micro"
+                android:paddingHorizontal="@dimen/common_padding_default"
+                />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnDescription"
+            app:icon="@drawable/ic_description"
+            app:iconGravity="end"
+            android:layout_marginTop="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/adultTv"
+            app:layout_constraintTop_toBottomOf="@id/linear" />
+
+
+        <TextView
+            android:id="@+id/adultTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tag_danger"
+            android:drawableLeft="@drawable/ic_greater_18"
+            android:drawableTint="@color/white"
+            android:text="@string/number_18"
+            android:textColor="@color/white"
+            android:tooltipText="@string/adultTooltip"
+            android:visibility="invisible"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnDescription"
+            app:layout_constraintTop_toBottomOf="@id/linear" />
+
+        <TextView
+            android:id="@+id/scoreAvg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tag_background"
+            android:backgroundTint="@color/naranja0"
+            tools:text="SCORE AVERAGE: 9.89"
+            android:textColor="@color/white"
+            android:tooltipText="@string/scoreAvgTooltip"
+            android:textAppearance="?attr/textAppearanceBody1"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDescription" />
+
+        <TextView
+            android:id="@+id/reviewsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reviewsLabel"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/foreground"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scoreAvg" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/flexbox"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:flexWrap="wrap"
+            app:alignItems="center"
+            app:alignContent="space_around"
+            app:justifyContent="center"
+            android:layout_marginHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginBottom="@dimen/common_padding_xxLarge"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/reviewsLabel" >
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLinks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btnLinks"
+            app:icon="@drawable/ic_description"
+            app:iconGravity="end"
+            android:layout_marginTop="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/flexbox" />
+
+        <TextView
+            android:id="@+id/studioLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/studioTitle"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/foreground"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnLinks" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/studiosRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/studioLabel"
+            tools:listitem="@layout/studio_item"/>
+
+        <TextView
+            android:id="@+id/charsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/charsLabel"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textColor="@color/foreground"
+            android:paddingVertical="@dimen/common_padding_micro"
+            android:paddingHorizontal="@dimen/common_padding_small"
+            android:layout_marginTop="@dimen/common_padding_default"
+            android:layout_marginStart="@dimen/common_padding_default"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/studiosRecycler" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/charsRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/common_padding_large"
+            app:layout_constraintTop_toBottomOf="@id/charsLabel"
+            tools:listitem="@layout/character_item"/>
+
+        <TextView
+            android:id="@+id/tvOpt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/charsRecycler"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
